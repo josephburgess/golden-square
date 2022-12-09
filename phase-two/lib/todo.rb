@@ -4,9 +4,7 @@ class Todo
     @done = false
   end
 
-  def task
-    @task
-  end
+  attr_reader :task
 
   def mark_done!
     @done = true

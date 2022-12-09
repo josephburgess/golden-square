@@ -1,4 +1,4 @@
-require 'todo.rb'
+require 'todo'
 
 describe 'todo unit tests' do
   task_1 = 'Walk the dog'

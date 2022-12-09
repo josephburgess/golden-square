@@ -1,13 +1,12 @@
-require 'todo_list.rb'
-require 'todo.rb'
+require 'todo_list'
+require 'todo'
 
 describe 'TodoList & Todo integration' do
   task_1 = 'Walk the dog'
   task_2 = 'Mow the lawn'
   task_3 = 'Clean the car'
-  
-  
-  it 'returns completed task when one has been provided and marked done'do
+
+  it 'returns completed task when one has been provided and marked done' do
     todolist = TodoList.new
     todo_1 = Todo.new(task_1)
     todolist.add(todo_1)
