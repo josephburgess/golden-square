@@ -8,7 +8,8 @@ class MusicList
   end
 
   def printtracks
-    fail 'No tracks added!' if @list == []
+    raise 'No tracks added!' if @list == []
+
     @list.join(', ')
   end
 end
