@@ -1,40 +1,39 @@
 require 'task_list'
 
 RSpec.describe TaskList do
+  before :each do
+    @tasklist = TaskList.new
+  end
+
   it 'initially has an empty list' do
-    task_list = TaskList.new
-    expect(task_list.all).to eq []
+    expect(@tasklist.all).to eq []
   end
 
   it 'is initially not all complete' do
-    task_list = TaskList.new
-    expect(task_list.all_complete?).to eq false
+    expect(@tasklist.all_complete?).to eq false
   end
 
   it 'returns a list of all tasks' do
-    task_list = TaskList.new
     task1 = double :task
     task2 = double :task
-    task_list.add(task1)
-    task_list.add(task2)
-    expect(task_list.all).to eq [task1, task2]
+    @tasklist.add(task1)
+    @tasklist.add(task2)
+    expect(@tasklist.all).to eq [task1, task2]
   end
 
   it 'returns false if not all tasks have been completed' do
-    task_list = TaskList.new
     task1 = double :task, complete?: true
     task2 = double :task, complete?: false
-    task_list.add(task1)
-    task_list.add(task2)
-    expect(task_list.all_complete?).to eq false
+    @tasklist.add(task1)
+    @tasklist.add(task2)
+    expect(@tasklist.all_complete?).to eq false
   end
 
   it 'returns false if not all tasks have been completed' do
-    task_list = TaskList.new
     task1 = double :task, complete?: true
     task2 = double :task, complete?: true
-    task_list.add(task1)
-    task_list.add(task2)
-    expect(task_list.all_complete?).to eq true
+    @tasklist.add(task1)
+    @tasklist.add(task2)
+    expect(@tasklist.all_complete?).to eq true
   end
 end
